@@ -7,7 +7,7 @@
  * @list: arguments
  * Return: numb of char to be printed
  */
-int print_op(const char *format, fmt_t *print_arr, va_list list)
+int check_sp(const char *format, fmt_t *print_arr, va_list list)
 {
 	int count = 0, i = 0, j = 0;
 
@@ -28,11 +28,11 @@ int print_op(const char *format, fmt_t *print_arr, va_list list)
 					return (-1);
 				if (format[i] != '%')
 					count += _putchar('%');
-				count += _putchar(a);
+				count += _putchar(format[i]);
 			}
 		}
 		else
-			count += _putchar(a);
+			count += _putchar(format[i]);
 		i++;
 	}
 	return (count);
@@ -65,7 +65,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-	a = check(format, ops, list);
+	a = check_sp(format, ops, list);
 	va_end(list);
 	return (a);
 }
