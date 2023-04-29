@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include<limits.h>
 
 /**
  * struct fmt - check for formats
